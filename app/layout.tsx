@@ -8,6 +8,11 @@ const sans = Manrope({ variable: "--font-sans", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Muzaza Interior Design | Imagine. Design. Create. Transform.",
   description: "Bespoke interiors, kitchens, wardrobes, media walls and custom cabinetry by Muzaza Interior Design.",
+  icons: {
+    icon: [{ url: "/muzaza/brand.jpeg", type: "image/jpeg" }],
+    shortcut: "/muzaza/brand.jpeg",
+    apple: "/muzaza/brand.jpeg",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
