@@ -40,7 +40,11 @@ export default function Home() {
       </nav>
       <div className={`menu ${menu ? "open" : ""}`}><a onClick={close} href="#work">Selected work</a><a onClick={close} href="#expertise">What we do</a><a onClick={close} href="#contact">Start a project</a></div>
 
-      <section className="hero" id="top">
+      <section className="hero" id="top" onPointerMove={(event) => {
+        const box = event.currentTarget.getBoundingClientRect();
+        event.currentTarget.style.setProperty("--light-x", `${event.clientX - box.left}px`);
+        event.currentTarget.style.setProperty("--light-y", `${event.clientY - box.top}px`);
+      }}>
         <img className="heroImage" src="/muzaza/fireplace-room.jpeg" alt="Muzaza bespoke media wall with integrated fireplace" />
         <div className="heroShade" />
         <div className="heroLine"><span>Harare · Zimbabwe</span><span>Interiors / Joinery / Transformation</span></div>
@@ -60,6 +64,7 @@ export default function Home() {
       </section>
 
       <section className="transformation" id="work">
+        <div className="mLine" aria-hidden="true"><span>M</span><i /></div>
         <div className="sceneStage">
           {projects.slice(0, 4).map((project, i) => <img key={project.title} className={scene === i ? "active" : ""} src={project.image} alt={project.title} />)}
           <div className="sceneFrame"><span>0{scene + 1}</span><div><p>Selected space</p><h3>{projects[scene].title}</h3><small>{projects[scene].type}</small></div></div>
