@@ -57,6 +57,20 @@ export default function Home() {
         <div className="heroStamp"><span>MI</span><p>DESIGN<br />CREATE<br />TRANSFORM</p></div>
       </section>
 
+      <section className="heroCapabilities" aria-label="Muzaza services">
+        <div className="capIntro"><span>WHAT WE SHAPE</span><b>Four disciplines.<br />One complete space.</b></div>
+        {[
+          ["01", "Interior Design", "Space, material and atmosphere"],
+          ["02", "Bespoke Kitchens", "Made around the way you live"],
+          ["03", "Fitted Wardrobes", "Storage resolved beautifully"],
+          ["04", "Media Walls", "Light, fire and entertainment"],
+        ].map(([number, title, copy]) => (
+          <a href="#expertise" className="capability" key={number}>
+            <span>{number}</span><div><b>{title}</b><small>{copy}</small></div><i>↗</i>
+          </a>
+        ))}
+      </section>
+
       <section className="promise reveal">
         <p className="eyebrow">Our point of view / 01</p>
         <h2>A room should do more<br />than look beautiful. <em>It should<br />feel entirely yours.</em></h2>
